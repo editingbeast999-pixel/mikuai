@@ -1,0 +1,21 @@
+🎉 **NEW PUBLIC URL (Updated)**
+
+👉 **https://lucky-sites-push.loca.lt**
+
+---
+
+ℹ️ **Instructions:**
+
+1.  **Doston ko yeh NAYA link bhejein** (purana wala kaam nahi kar raha tha)
+2.  **Password:** Agar maange toh apna Public IP daalein
+    - Google par type karein: `what is my ip`
+    - Jo IP dikhe, wo password hai
+3.  **Click to Continue:** Agar button aaye toh click karein
+4.  **PC ON:** Jab tak terminal chal raha hai, tabhi link chalega
+
+---
+
+⚠️ **Note:** Localtunnel kabhi-kabhi disconnect ho jata hai (free service hai).
+Agar fir se "503 Error" aaye, mujhe batayein - main dobara naya link bana dunga.
+
+**Better Solution:** Permanent URL ke liye `DEPLOYMENT_GUIDE_HINDI.md` dekho (Render.com - Free & 24/7).

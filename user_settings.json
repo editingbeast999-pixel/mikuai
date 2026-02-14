@@ -1,0 +1,9 @@
+{
+  "language": "hinglish",
+  "voice_speed": 170,
+  "voice_pitch": 1.0,
+  "theme": "dark",
+  "wake_word_enabled": true,
+  "voice_mode_default": true,
+  "response_length": "balanced"
+}

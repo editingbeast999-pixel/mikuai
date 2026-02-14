@@ -1,0 +1,29 @@
+# GitHub Setup Commands - Copy Paste Karo Terminal Mein
+
+# Step 1: Git Config (Apna naam aur email dalo)
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+
+# Step 2: Git Initialize
+git init
+
+# Step 3: Files Add Karo
+git add .
+
+# Step 4: First Commit
+git commit -m "Initial commit - Miku AI Assistant"
+
+# Step 5: GitHub Repository Banao (Browser Mein)
+# 1. github.com par jao
+# 2. Login karo
+# 3. Upar right corner mein "+" button -> "New repository"
+# 4. Name: miku-ai-assistant
+# 5. Public select karo
+# 6. "Create repository" dabao
+# 7. Naye page par "...or push an existing repository" section mein commands dikhenge
+# 8. Wo commands copy karke terminal mein paste karo
+
+# Example (Tumhara username daal ke):
+git remote add origin https://github.com/YOUR_USERNAME/miku-ai-assistant.git
+git branch -M main
+git push -u origin main

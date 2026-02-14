@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miku AI Voice Assistant 🎀</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css?v=8">
+    <link rel="stylesheet" href="/static/voice_mode.css">
+</head>
+
+<body>
+    <!-- Left Sidebar -->
+    <!-- Left Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <!-- Inner wrapper for padding moved to CSS if possible but keeping simple -->
+        <div style="padding: 20px; height: 100%; display: flex; flex-direction: column;">
+            <!-- New Chat Button -->
+            <button class="new-chat-btn" onclick="newChat()">
+                <span class="material-icons">add</span>
+                <span>New Chat</span>
+            </button>
+
+            <!-- Search Box -->
+            <div class="chat-search">
+                <input type="text" id="chat-search-input" placeholder="Search chats..." onkeyup="searchChats()">
+                <span class="material-icons">search</span>
+            </div>
+
+            <!-- Chat History -->
+            <div class="chat-history">
+                <div class="history-section-title">Recent Chats</div>
+                <div id="history-list" class="history-list">
+                    <!-- Chat history items will be added here -->
+                </div>
+            </div>
+
+            <!-- User Section (at bottom) -->
+            <div class="sidebar-footer">
+                <div class="user-section">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-info">
+                        <div class="user-name">User</div>
+                        <div class="user-email">miku.user@local</div>
+                    </div>
+                </div>
+
+                <button class="sidebar-settings-btn" onclick="toggleSettings()">
+                    <span class="material-icons">settings</span>
+                    <span>Settings</span>
+                </button>
+            </div>
+        </div>
+    </div> <!-- Close Sidebar -->
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Miku Orb and Chat -->
+        <div class="chat-wrapper">
+            <!-- Miku Orb -->
+            <!-- Inner Line Breathing Orb -->
+            <div class="orb-container" id="orbContainer">
+                <div class="orb">
+                    <div class="orb-core"></div>
+                    <div class="orb-inner-line"></div>
+                </div>
+                <div class="status-text" id="status-text">Hey my name is miku</div>
+            </div>
+
+            <!-- Chat Container -->
+            <div class="chat-container" id="chat-container">
+                <!-- Messages will appear here -->
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-area" style="display: flex !important;">
+                <button class="voice-btn" id="voice-btn" onclick="startVoiceInput()">
+                    <span class="material-icons">mic</span>
+                </button>
+                <input type="text" id="text-input" placeholder="Type karo ya mic dabao..."
+                    onkeypress="handleKeyPress(event)" />
+                <button class="send-btn" onclick="sendMessage()">
+                    <span class="material-icons">send</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Settings Panel (slides from right) -->
+        <div class="settings-panel" id="settings-panel">
+            <div class="settings-header">
+                <h2>⚙️ Settings</h2>
+                <button class="close-btn" onclick="toggleSettings()">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+
+            <div class="settings-content">
+                <div class="setting-group">
+                    <label>Language Preference</label>
+                    <select id="language-setting" onchange="updateSettings()">
+                        <option value="auto">Auto Detect</option>
+                        <option value="english">English</option>
+                        <option value="hinglish">Hinglish</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label>Voice Speed: <span id="speed-value">170</span> wpm</label>
+                    <input type="range" id="voice-speed" min="120" max="220" value="170"
+                        oninput="updateSpeedLabel(this.value)" onchange="updateSettings()">
+                </div>
+
+                <div class="setting-group">
+                    <label>Theme</label>
+                    <select id="theme-setting" onchange="updateSettings()">
+                        <option value="dark">Dark Mode</option>
+                        <option value="light">Light Mode</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label class="switch-label">
+                        <input type="checkbox" id="wake-word-toggle" onchange="updateSettings()" checked>
+                        <span>Wake Word Detection</span>
+                    </label>
+                </div>
+
+                <div class="setting-group">
+                    <button class="reset-btn" onclick="resetConversation()">
+                        🔄 Clear Chat History
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Overlay -->
+        <div class="overlay" id="overlay" onclick="toggleSettings()"></div>
+    </div>
+
+    <!-- ChatGPT-Style Voice Mode Overlay -->
+    <div class="voice-mode-overlay" id="voice-mode-overlay">
+        <!-- Top Controls -->
+        <div class="voice-controls-top">
+            <button class="voice-control-btn" id="voice-mute-btn" onclick="toggleVoiceMute()" title="Mute">
+                <span class="material-icons">volume_up</span>
+            </button>
+            <button class="voice-control-btn" onclick="toggleSettings()" title="Settings">
+                <span class="material-icons">settings</span>
+            </button>
+        </div>
+
+        <!-- Status Indicator -->
+        <div class="voice-status-indicator" id="voice-status-indicator">Ready</div>
+
+        <!-- Voice Orb & Transcript -->
+        <div class="voice-orb-wrapper">
+            <!-- Replaced Canvas with CSS Orb -->
+            <div class="orb-container voice-mode" style="height: auto; margin: 0;">
+                <div class="orb">
+                    <div class="orb-core"></div>
+                    <div class="orb-inner-line"></div>
+                </div>
+            </div>
+
+            <div class="voice-transcript" id="voice-transcript">
+                <div class="transcript-user" id="transcript-user"></div>
+                <div class="transcript-miku" id="transcript-miku"></div>
+            </div>
+        </div>
+
+        <!-- Bottom Controls -->
+        <div class="voice-controls-bottom">
+            <button class="voice-btn-large mic-btn" id="voice-mic-btn" onclick="toggleMic()">
+                <span class="material-icons" style="font-size: 2rem;">mic</span>
+            </button>
+            <button class="voice-btn-large close-btn" onclick="closeVoiceMode()">
+                <span class="material-icons" style="font-size: 2rem;">close</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Socket.IO for real-time communication -->
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="/static/controls.js"></script>
+    <script src="/static/script.js?v=11"></script>
+    <script src="/static/voice_mode.js"></script>
+</body>
+
+</html>

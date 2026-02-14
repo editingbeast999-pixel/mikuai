@@ -1,0 +1,33 @@
+Available Gemini Models:
+============================================================
+
+1. models/gemini-2.5-flash
+2. models/gemini-2.5-pro
+3. models/gemini-2.0-flash
+4. models/gemini-2.0-flash-001
+5. models/gemini-2.0-flash-exp-image-generation
+6. models/gemini-2.0-flash-lite-001
+7. models/gemini-2.0-flash-lite
+8. models/gemini-exp-1206
+9. models/gemini-2.5-flash-preview-tts
+10. models/gemini-2.5-pro-preview-tts
+11. models/gemma-3-1b-it
+12. models/gemma-3-4b-it
+13. models/gemma-3-12b-it
+14. models/gemma-3-27b-it
+15. models/gemma-3n-e4b-it
+16. models/gemma-3n-e2b-it
+17. models/gemini-flash-latest
+18. models/gemini-flash-lite-latest
+19. models/gemini-pro-latest
+20. models/gemini-2.5-flash-lite
+21. models/gemini-2.5-flash-image
+22. models/gemini-2.5-flash-preview-09-2025
+23. models/gemini-2.5-flash-lite-preview-09-2025
+24. models/gemini-3-pro-preview
+25. models/gemini-3-flash-preview
+26. models/gemini-3-pro-image-preview
+27. models/nano-banana-pro-preview
+28. models/gemini-robotics-er-1.5-preview
+29. models/gemini-2.5-computer-use-preview-10-2025
+30. models/deep-research-pro-preview-12-2025
